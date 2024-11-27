@@ -1,23 +1,23 @@
 import { StyleSheet } from "react-native";
 import { createStyles } from "shared/theme/createStyles";
 
-export const useStyles = createStyles(({ scale, theme, disabled, title }: any) =>
+export const useStyles = createStyles(({ scale, theme, secondary, }: any) =>
   StyleSheet.create({
     button: {
-      borderRadius: scale(16),
+      borderRadius: scale(8),
       justifyContent: "center",
       alignItems: "center",
-      height: scale(44),
-      borderWidth: scale(2),
-      borderColor: disabled ? theme.palette.secondaryDisabled : theme.palette.dark,
+      height: scale(48),
       width: "100%",
       zIndex: 1,
       bottom: scale(4),
-      left: scale(2)
+      left: scale(2),
+      borderWidth: secondary ? scale(2) : scale(0),
     },
     loader: {
-      height: scale(60),
-      width: scale(60)
+      height: scale(65),
+      width: scale(65),
+      top: scale(3)
     },
     btnText: {
       fontSize: scale(16),
@@ -33,14 +33,6 @@ export const useStyles = createStyles(({ scale, theme, disabled, title }: any) =
     textContainer: {
       flexDirection: "row",
       alignItems: "center"
-    },
-    iconLeft: {
-      marginRight: !title ? 0 : scale(8),
-      opacity: disabled ? 0.4 : 1
-    },
-    iconRight: {
-      marginLeft: !title ? 0 : scale(8),
-      opacity: disabled ? 0.4 : 1
     },
   })
 );

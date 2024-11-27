@@ -1,9 +1,9 @@
-import React, { forwardRef, useState } from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { CustomInputProps } from 'ui-kit/custom-input/custom-input.types';
-import { useTheme } from 'shared/theme/ThemeProvider';
-import { AppIcon } from 'assets/index';
-import { useStyles } from './custom-input.styles';
+import React, {forwardRef, useState} from 'react';
+import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {CustomInputProps} from 'ui-kit/custom-input/custom-input.types';
+import {useTheme} from 'shared/theme/ThemeProvider';
+import {AppIcon} from 'assets/index';
+import {useStyles} from './custom-input.styles';
 
 // eslint-disable-next-line react/display-name
 const CustomInput = forwardRef(
@@ -18,36 +18,39 @@ const CustomInput = forwardRef(
       errorMessage,
       keyboardType = 'default',
       leftIcon,
-      rightIcon,
+      leftIconSize,
       secureTextEntry,
-      search,
       onFocus,
       onBlur,
-      onRightIconPress,
       multiline = false,
       autoFocus = false,
       editable = true,
       errorMessageStyles,
+      blueFocus,
     } = props;
+    const [focus, setFocus] = useState(false);
     const styles = useStyles({
       error: errorMessage,
+      leftIconSize,
       leftIcon,
-      rightIcon,
-      search,
+      focus,
+      blueFocus,
     });
-    const { theme } = useTheme();
+    const {theme} = useTheme();
     const [securePassword, setSecurePassword] = useState(true);
 
     const handleFocus = (e: any) => {
       if (onFocus) {
         onFocus(e);
       }
+      setFocus(true);
     };
 
     const handleBlur = (e: any) => {
       if (onBlur) {
         onBlur(e);
       }
+      setFocus(false);
     };
 
     return (
@@ -59,7 +62,7 @@ const CustomInput = forwardRef(
         )}
         <View style={[styles.inputContainer, styleInput]}>
           {leftIcon && (
-            <AppIcon name={leftIcon} style={styles.leftIcon} color="gray" />
+            <AppIcon name={leftIcon} style={styles.leftIcon} color={errorMessage ? 'danger' : 'black50'}/>
           )}
           <TextInput
             ref={ref}
@@ -77,21 +80,6 @@ const CustomInput = forwardRef(
             onBlur={handleBlur}
             placeholderTextColor={theme.palette.gray}
           />
-          {secureTextEntry && (
-            <TouchableOpacity
-              onPress={() => setSecurePassword(!securePassword)}
-            >
-              <AppIcon
-                name={securePassword ? 'eye' : 'eye_close'}
-                style={styles.rightIcon}
-              />
-            </TouchableOpacity>
-          )}
-          {rightIcon && (
-            <TouchableOpacity onPress={onRightIconPress}>
-              <AppIcon name={rightIcon} style={styles.rightIcon} />
-            </TouchableOpacity>
-          )}
         </View>
         {errorMessage && (
           <Text

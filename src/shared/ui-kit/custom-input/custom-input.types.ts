@@ -1,5 +1,6 @@
 import { KeyboardTypeOptions, TextInputProps, TextInput, TextStyle, StyleProp } from "react-native";
 import { APP_ICONS } from "assets/icon.data";
+import {IAppTheme} from "theme/theme";
 
 export interface CustomInputProps extends TextInputProps  {
   value: string;
@@ -20,4 +21,6 @@ export interface CustomInputProps extends TextInputProps  {
   ref?: TextInput;
   autoFocus?: boolean;
   errorMessageStyles?: StyleProp<TextStyle>;
+  leftIconSize?: number;
+  blueFocus?: boolean
 }

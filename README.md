@@ -1,79 +1,74 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+Вимоги для мобільного додатку "Шпигун":
 
-# Getting Started
+### Основна Функціональність:
+1. Реєстрація Гравців:
+   - Користувач вводить імена гравців, які додаються у список.
+   - Кількість гравців: від 4 до 10 осіб (мінімум 4 для цікавого геймплею).
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+2. Вибір Теми:
+   - Вибір конкретної теми або можливість вибрати всі теми для випадкового вибору.
+   - Теми можуть включати: Місто, Зоопарк, Кінотеатр тощо.
 
-## Step 1: Start the Metro Server
+3. Роздача Ролей:
+   - Кожен гравець по черзі отримує телефон в руки і натискає на екран, щоб побачити свою карту.
+   - Карта містить інформацію про роль гравця: "Шпигун" або "Звичайний гравець".
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+4. Питання по Колу:
+   - Гравці отримують сповіщення, хто має поставити запитання і кому (наприклад, "Гравець 1 питає Гравця 2").
+   - Можливість автоматично змінювати черговість, щоб кожен міг запитати кожного.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+5. Раунд Обговорення:
+   - Після першого кола питань, запускається таймер на 1 хвилину для загального обговорення.
+   - Після цього гравці голосують, чи виганяти когось зі шпигунів.
 
-```bash
-# using npm
-npm start
+6. Раунд Асоціацій:
+   - Кожному гравцеві показується предмет на екрані (напр. "Карта", "Стіл").
+   - Гравці повинні коротко розповісти, як цей предмет пов'язаний із темою.
 
-# OR using Yarn
-yarn start
-```
+7. Раунд Голосування:
+   - Гравці голосують, хто, на їхню думку, є шпигуном.
+   - Якщо більшість голосує за одну особу — її виганяють.
 
-## Step 2: Start your Application
+8. Спеціальна Дія: "Ми знайшли шпигуна":
+   - У будь-який момент між раундами можна обрати цю дію, щоб одразу запустити голосування.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
-### For Android
+### Базовий Дизайн Інтерфейсу:
 
-```bash
-# using npm
-npm run android
+1. Екран Реєстрації Гравців:
+   - Текстове поле для введення імені та кнопка "Додати гравця".
+   - Список гравців, що поповнюється після кожного додавання.
+   - Кнопка "Почати гру" — стає активною, коли введено мінімум 4 гравці.
 
-# OR using Yarn
-yarn android
-```
+2. Екран Вибору Теми:
+   - Модалка з вибором теми: список тем, де можна обрати одну або всі теми.
+   - Кнопка "Почати роздачу ролей".
 
-### For iOS
+3. Екран Роздачі Ролей:
+   - Інструкція для гравця: "Передайте телефон Гравцю 1".
+   - Кнопка "Переглянути свою карту", після натискання якої з'являється роль ("Шпигун" або "Звичайний гравець").
+   - Кнопка "Передати наступному гравцю".
 
-```bash
-# using npm
-npm run ios
+4. Екран Питань по Колу:
+   - Інформаційний блок: Хто має задати запитання кому (наприклад, "Гравець 1 питає Гравця 2").
+   - Кнопка "Наступний гравець" для переходу до наступної пари.
 
-# OR using Yarn
-yarn ios
-```
+5. Екран Обговорення:
+   - Таймер на 1 хвилину.
+   - Кнопка "Завершити обговорення та голосувати".
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+6. Екран Голосування:
+   - Список гравців з можливістю обрати гравця, за якого голосують.
+   - Кнопка "Голосувати" після вибору.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+7. Екран Асоціацій:
+   - Предмет на екрані (напр. картинка з назвою).
+   - Текстове поле для введення асоціації або кнопка "Далі", якщо асоціація вже озвучена.
 
-## Step 3: Modifying your App
+8. Екран Спеціальної Дії "Ми знайшли шпигуна":
+   - Кнопка для активації голосування.
+   - Перехід на екран голосування.
 
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+9. Фінальний Екран:
+   - Відображення результату (хто був шпигуном, хто виграв).
+   - Кнопка "Почати нову гру".

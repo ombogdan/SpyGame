@@ -1,45 +1,91 @@
 export interface IAppTheme {
   palette: {
+    none: `none`;
     dark: `#${string}`;
-    darkLight: `#${string}`;
-    mediumDark: `#${string}`;
-    medium: `#${string}`;
-    lightMedium: `#${string}`;
-    light: `#${string}`;
+    textGreen: `#${string}`;
+    textDefault: `#${string}`;
+    blue: `#${string}`;
+    blueSecondary: `#${string}`;
+    primary: `#${string}`;
+    gray: `#${string}`;
+    disabled: `#${string}`;
+    secondary: `#${string}`;
     white: `#${string}`;
-    accentPurple: `#${string}`;
-    accentRed: `#${string}`;
-    accentBlue: `#${string}`;
-    success: `#${string}`;
-    successLight: `#${string}`;
+    primaryGray: `#${string}`;
+    secondaryDisabled: `#${string}`;
+    accent: `#${string}`;
+    accentHover: `#${string}`;
+    accentPressed: `#${string}`;
+    accentDisabled: `#${string}`;
     danger: `#${string}`;
     dangerLight: `#${string}`;
-    backgroundLight: `#${string}`;
-    backgroundLighter: `#${string}`;
-    highlightPurple: `#${string}`;
-    highlightPink: `#${string}`;
+    dangerHover: `#${string}`;
+    dangerDisabled: `#${string}`;
+    orange: `#${string}`;
+    accentDisabled1: `#${string}`;
+    secondaryWhite: `#${string}`;
+    grayPrimary: `#${string}`;
+    grayLight: `#${string}`;
+    success: `#${string}`;
+    greenLight: `#${string}`;
+    successLight: `#${string}`;
+    disabledButton: `#${string}`;
+    blueDark: `#${string}`;
+    secondaryGray: `#${string}`;
+    grayPrimary1: `#${string}`;
+    black70: `#${string}`;
+    black40: `#${string}`;
+    neutralBackground: `#${string}`;
+    textBlack: `#${string}`;
+    black50: `#${string}`;
+    main20: `#${string}`;
+    black80: `#${string}`;
+    main10: `#${string}`;
   };
 }
 
 export const defaultTheme: IAppTheme = {
   palette: {
-    dark: "#18191F",
-    darkLight: "#31333F",
-    mediumDark: "#424454",
-    medium: "#565869",
-    lightMedium: "#7A7C8B",
-    light: "#C1C2CE",
-    white: "#FFFFFF",
-    backgroundLight: "#F3F5F9",
-    backgroundLighter: "#ECEEF2",
-    accentPurple: "#8074FF",
-    highlightPurple: "#8074FF",
-    accentBlue: "#04ADDC",
-    success: "#04ADDC",
-    successLight: "#04ADDC",
-    danger: "#04ADDC",
-    dangerLight: "#04ADDC",
-    highlightPink: "#F183D2",
-    accentRed: "#FA5555"
-  }
+    none: 'none',
+    primary: '#000000',
+    textBlack: '#141415',
+    dark: '#242424',
+    textGreen: '#142F32',
+    textDefault: '#1D3252',
+    blueSecondary: '#4A87CE',
+    blue: '#3C8AE6',
+    blueDark: '#2778D8',
+    primaryGray: '#66727F',
+    grayPrimary: '#6A6A6A',
+    grayPrimary1: '#757575',
+    black80: '#444447',
+    black70: '#616161',
+    black50: '#8F8C8C',
+    main10: '#F1F5FA',
+    gray: '#8C8A8A',
+    black40: '#9C9C9C',
+    disabled: '#AAA8A8',
+    grayLight: '#B8B8B8',
+    secondaryDisabled: '#E6E6E6',
+    secondaryWhite: '#F2F2F2',
+    secondary: '#F2F4F7',
+    neutralBackground: '#F6F6F7',
+    secondaryGray: '#DCDEE0',
+    white: '#FFFFFF',
+    dangerLight: '#F9F9F9',
+    accentDisabled: '#FFEAE1',
+    dangerDisabled: '#FAD6D6',
+    accentDisabled1: '#FFDBCB',
+    accentHover: '#FFB190',
+    accent: '#E9713E',
+    orange: '#F28354',
+    accentPressed: '#FF6A2A',
+    danger: '#E73430',
+    dangerHover: '#D22626',
+    success: '#0CB653',
+    greenLight: '#82CCB3',
+    successLight: '#DBF1D9',
+    disabledButton: '#4DA781',
+    main20: '#D6E7FA',
+  },
 };
