@@ -5,6 +5,7 @@ import { AppUserRoutes } from './app-user.navigator.enums';
 
 export type AppUserRoutesParamList = {
   [AppUserRoutes.Home]: {} | undefined;
+  [AppUserRoutes.RolePlaying]: {} | undefined;
 };
 
 export type AppUserRoutesNavigationProps =

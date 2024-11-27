@@ -86,6 +86,7 @@ export const useTimer = ({
 
   return {
     ...Time.getTimeFromSeconds(seconds),
+    seconds,
     start,
     pause,
     resume,

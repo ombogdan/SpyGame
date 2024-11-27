@@ -7,7 +7,6 @@ import { BUTTON_VARIANTS, FirstNameList, LastNameList, ThemeNamesList } from "sh
 import CustomInput from "ui-kit/custom-input/custom-input.component.tsx";
 import { AppIcon } from "shared/assets";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import RNPickerSelect from "react-native-picker-select";
 import { SearchableSelect } from "components/searchable-select";
 import { AppUserRoutes } from "shared/navigation/app-user";
 import { navigate } from "shared/navigation/root-navigator.config.ts";
@@ -50,7 +49,7 @@ const Home = () => {
   }, [gameStarted]);
 
   const handleSelectSettingsGame = () => {
-   navigate(AppUserRoutes.RolePlaying, {allThemeChecked, selectedLocations, selectedTheme});
+   navigate(AppUserRoutes.RolePlaying, {allThemeChecked, selectedLocations, selectedTheme, userList});
   };
 
   useEffect(() => {
@@ -121,12 +120,12 @@ const Home = () => {
                   <AppIcon name={"add"} size={20} color={"blueDark"} />
                 </TouchableOpacity>
               </View>
-              <Text style={styles.headerText}>Список гравців:</Text>
+              <Text style={styles.headerText}>Список гравців (4-10):</Text>
               {userList.map((item, index) => (
                 <Text style={styles.userName} key={index}>{item}</Text>
               ))}
             </Box>
-            {userList.length > 3 &&
+            {userList.length > 1 &&
               <View style={[Platform.OS === "ios" && { position: "absolute", bottom: keyboardHeight, width: "100%" }]}>
                 <CustomButton
                   variant={BUTTON_VARIANTS.primary}
